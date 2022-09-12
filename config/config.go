@@ -13,6 +13,7 @@ const DEFAULT_SERVER_PORT = "8080"
 
 const SERVER_READ_TIMEOUT = 2 * time.Second
 const SERVER_WRITE_TIMEOUT = 2 * time.Second
+const GRACEFUL_SHUTDOWN_TIMEOUT = 5 * time.Second
 
 var BASE_URL, _ = url.Parse("http://shortener.ly")
 

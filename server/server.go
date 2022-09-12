@@ -8,7 +8,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 	"url-shortener/1.0/config"
 	"url-shortener/1.0/utils"
 )
@@ -41,7 +40,7 @@ func ListenServer(server *http.Server) {
 }
 
 func gracefulShutdown(server *http.Server) {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), config.GRACEFUL_SHUTDOWN_TIMEOUT)
 	defer cancel()
 
 	logger.Println("Shutting down server")
